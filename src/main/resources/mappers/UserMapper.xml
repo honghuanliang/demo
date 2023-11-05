@@ -8,4 +8,8 @@
 		select name from user u where u.id = #{userId}
 	</select>
 
+	<select id="findByName" resultType="java.lang.Integer">
+		select u.id from user u where u.name= #{username}
+	</select>
+
 </mapper>

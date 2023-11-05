@@ -33,4 +33,15 @@ public class UserController {
         return userService.findById(id);
     }
 
+    /**
+     * 根据用户id查询用户名称
+     *
+     * @param name 用户名
+     * @return 用户id
+     */
+    @GetMapping("/query_name")
+    public Integer findByName(@RequestParam String name) {
+        return userService.findByName(name);
+    }
+
 }

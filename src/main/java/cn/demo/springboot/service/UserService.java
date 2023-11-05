@@ -16,4 +16,12 @@ public interface UserService {
      * @return 用户名
      */
     String findById(Integer id);
+
+    /**
+     * 根据用户id查询用户名称
+     *
+     * @param name 用户名
+     * @return 用户id
+     */
+    Integer findByName(String name);
 }
