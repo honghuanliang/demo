@@ -12,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  */
 @SpringBootApplication
-public class Application {
+public class DemoApplication {
 
 	public static void main(String[] args) {
 		/** 创建SpringApplicaiton */
-		SpringApplication springApplication = new SpringApplication(Application.class); 
+		SpringApplication springApplication = new SpringApplication(DemoApplication.class);
 		/** 设置banner关闭 */
 		springApplication.setBannerMode(Mode.OFF);
 		/** 运行 */
