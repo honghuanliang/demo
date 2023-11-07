@@ -1,4 +1,4 @@
-package cn.demo.springboot.pojo;
+package cn.demo.springboot.entity.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,7 +10,7 @@ import lombok.Data;
  *
  * @TableName user
  */
-@Data
+
 @TableName("user")
 public class User {
     /**
@@ -31,4 +31,27 @@ public class User {
     @TableField("age")
     private String userAge;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(String userAge) {
+        this.userAge = userAge;
+    }
 }

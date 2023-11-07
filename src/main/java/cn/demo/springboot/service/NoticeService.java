@@ -3,7 +3,7 @@ package cn.demo.springboot.service;
 import java.util.List;
 import java.util.Map;
 
-import cn.demo.springboot.pojo.Notice;
+import cn.demo.springboot.entity.pojo.Notice;
 
 /**
  * NoticeService

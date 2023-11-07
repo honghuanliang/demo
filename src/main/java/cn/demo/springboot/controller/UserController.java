@@ -1,11 +1,11 @@
 package cn.demo.springboot.controller;
 
+import cn.demo.springboot.entity.dto.UserDTO;
 import cn.demo.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * NoticeController
@@ -32,5 +32,36 @@ public class UserController {
     public String findById(@RequestParam Integer id) {
         return userService.findById(id);
     }
+
+    /**
+     * 保存用户
+     *
+     * @param userDTO 用户信息
+     */
+    @PostMapping("/save_user")
+    public void saveUser(@Valid @RequestBody UserDTO userDTO) {
+        userService.saveUserInfo(userDTO);
+    }
+
+    /**
+     * 更新用户
+     *
+     * @param userDTO 更新信息
+     */
+    @PostMapping("/update_user")
+    public void updateUser(@Valid @RequestBody UserDTO userDTO) {
+        userService.updateUser(userDTO);
+    }
+
+    /**
+     * 删除用户
+     *
+     * @param id 用户id
+     */
+    @GetMapping("/delete_user")
+    public void deleteUser(@RequestParam Integer id) {
+        userService.deleteUser(id);
+    }
+
 
 }

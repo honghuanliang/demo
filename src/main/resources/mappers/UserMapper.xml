@@ -4,6 +4,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.demo.springboot.mapper.UserMapper">
 
+	<insert id="saveUserInfoMapper">
+		insert into user(name, age) value (#{userDTO.username}, #{userDTO.userAge})
+	</insert>
+
+	<update id="updateUser">
+		update user u set u.name=#{userDTO.username}, u.age=#{userDTO.userAge} where id=#{userDTO.id}
+	</update>
+
+	<delete id="deleteUser">
+		delete from user where id=#{id}
+	</delete>
+
 	<select id="findById" resultType="java.lang.String">
 		select name from user u where u.id = #{userId}
 	</select>

@@ -1,6 +1,7 @@
 package cn.demo.springboot.mapper;
 
-import cn.demo.springboot.pojo.User;
+import cn.demo.springboot.entity.dto.UserDTO;
+import cn.demo.springboot.entity.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,4 +24,25 @@ public interface UserMapper extends BaseMapper<User> {
      * @return 用户名称
      */
     String findById(@Param("userId") Integer id);
+
+    /**
+     * 保存用户
+     *
+     * @param userDTO 用户信息
+     */
+    void saveUserInfoMapper(@Param("userDTO") UserDTO userDTO);
+
+    /**
+     * 更新用户
+     *
+     * @param userDTO 更新信息
+     */
+    void updateUser(@Param("userDTO") UserDTO userDTO);
+
+    /**
+     * 删除用户
+     *
+     * @param id 用户id
+     */
+    void deleteUser(@Param("id") Integer id);
 }

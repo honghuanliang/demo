@@ -1,5 +1,7 @@
 package cn.demo.springboot.service;
 
+import cn.demo.springboot.entity.dto.UserDTO;
+
 /**
  * 用户业务接口层
  *
@@ -16,4 +18,25 @@ public interface UserService {
      * @return 用户名
      */
     String findById(Integer id);
+
+    /**
+     * 保存用户
+     *
+     * @param userDTO 用户信息
+     */
+    void saveUserInfo(UserDTO userDTO);
+
+    /**
+     * 更新用户
+     *
+     * @param userDTO 更新信息
+     */
+    void updateUser(UserDTO userDTO);
+
+    /**
+     * 删除用户
+     *
+     * @param id 用户id
+     */
+    void deleteUser(Integer id);
 }

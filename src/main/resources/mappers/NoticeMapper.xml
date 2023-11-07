@@ -10,7 +10,7 @@
 	</select>
 
 	<!-- 分页查询 -->
-	<select id="findByPage" resultType="notice">
+	<select id="findByPage" resultType="cn.demo.springboot.entity.pojo.Notice">
 		select id,title,content from notice limit #{a}, #{b}
 	</select>
 </mapper>

@@ -1,4 +1,4 @@
-package cn.demo.springboot.pojo;
+package cn.demo.springboot.entity.pojo;
 /**
  * Notice
  * @author LEE.SIU.WAH
