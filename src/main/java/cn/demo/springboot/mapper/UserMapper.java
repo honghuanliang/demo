@@ -5,6 +5,9 @@ import cn.demo.springboot.entity.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * 用户数据层
@@ -45,4 +48,12 @@ public interface UserMapper extends BaseMapper<User> {
      * @param id 用户id
      */
     void deleteUser(@Param("id") Integer id);
+
+    /**
+     * 查询所有的用户
+     *
+     * @return 用户(别名)
+     */
+    @Select("select id,name username,age userAge from user")
+    List<User> findAllUser();
 }

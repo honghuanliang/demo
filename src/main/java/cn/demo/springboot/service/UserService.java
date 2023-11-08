@@ -1,6 +1,9 @@
 package cn.demo.springboot.service;
 
 import cn.demo.springboot.entity.dto.UserDTO;
+import cn.demo.springboot.entity.pojo.User;
+
+import java.util.List;
 
 /**
  * 用户业务接口层
@@ -39,4 +42,11 @@ public interface UserService {
      * @param id 用户id
      */
     void deleteUser(Integer id);
+
+    /**
+     * 查询所有的用户
+     *
+     * @return 用户
+     */
+    List<User> findAllUser();
 }

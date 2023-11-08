@@ -1,11 +1,13 @@
 package cn.demo.springboot.controller;
 
 import cn.demo.springboot.entity.dto.UserDTO;
+import cn.demo.springboot.entity.pojo.User;
 import cn.demo.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * NoticeController
@@ -31,6 +33,16 @@ public class UserController {
     @GetMapping("/query_id")
     public String findById(@RequestParam Integer id) {
         return userService.findById(id);
+    }
+
+    /**
+     * 查询所有的用户
+     *
+     * @return 用户
+     */
+    @GetMapping("/query_user_list")
+    public List<User> findAllUser() {
+        return userService.findAllUser();
     }
 
     /**

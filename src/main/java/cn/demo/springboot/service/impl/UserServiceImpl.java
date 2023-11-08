@@ -1,12 +1,16 @@
 package cn.demo.springboot.service.impl;
 
 import cn.demo.springboot.entity.dto.UserDTO;
+import cn.demo.springboot.entity.pojo.User;
 import cn.demo.springboot.mapper.UserMapper;
 import cn.demo.springboot.service.UserService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户实现层
@@ -56,5 +60,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Integer id) {
         userMapper.deleteUser(id);
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        return userMapper.findAllUser();
     }
 }
