@@ -2,6 +2,7 @@ package cn.demo.springboot.service;
 
 import cn.demo.springboot.entity.dto.UserDTO;
 import cn.demo.springboot.entity.pojo.User;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
 
@@ -49,4 +50,6 @@ public interface UserService {
      * @return 用户
      */
     List<User> findAllUser();
+
+    Page<User> findAllUserPage();
 }

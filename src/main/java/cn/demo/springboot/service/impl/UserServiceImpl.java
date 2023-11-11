@@ -5,6 +5,7 @@ import cn.demo.springboot.entity.pojo.User;
 import cn.demo.springboot.mapper.UserMapper;
 import cn.demo.springboot.service.UserService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,5 +66,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllUser() {
         return userMapper.findAllUser();
+    }
+
+    @Override
+    public Page<User> findAllUserPage() {
+        Page<User> page = new Page<>(1,1);
+        Page<User> userPage = userMapper.findAllUserPage(page);
+        return userPage;
     }
 }

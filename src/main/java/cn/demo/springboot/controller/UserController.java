@@ -3,6 +3,7 @@ package cn.demo.springboot.controller;
 import cn.demo.springboot.entity.dto.UserDTO;
 import cn.demo.springboot.entity.pojo.User;
 import cn.demo.springboot.service.UserService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +44,16 @@ public class UserController {
     @GetMapping("/query_user_list")
     public List<User> findAllUser() {
         return userService.findAllUser();
+    }
+
+    /**
+     * 分页查询所有的用户
+     *
+     * @return 用户
+     */
+    @PostMapping("/query_user_page")
+    public Page<User> findAllUserPage() {
+        return userService.findAllUserPage();
     }
 
     /**

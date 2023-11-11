@@ -3,6 +3,7 @@ package cn.demo.springboot.mapper;
 import cn.demo.springboot.entity.dto.UserDTO;
 import cn.demo.springboot.entity.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -56,4 +57,7 @@ public interface UserMapper extends BaseMapper<User> {
      */
     @Select("select id,name username,age userAge from user")
     List<User> findAllUser();
+
+    @Select("select id,name username,age userAge from user")
+    Page<User> findAllUserPage(Page<User> page);
 }
