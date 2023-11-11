@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.springboot.mapper.OrderMapper">
+
+	<select id="findOrder" resultType="cn.demo.springboot.entity.pojo.Order">
+		select o.id,o.orderNo,o.source,o.orderType,o.buyer,o.amount,o.status,o.orderTime from t_order o
+		where 1=1
+		<if test="order.orderNo != null and order.orderNo != ''">
+			and o.orderNo like concat('%',#{order.orderNo},'%')
+		</if>
+		<if test="order.buyer != null and order.buyer != ''">
+			and o.buyer like concat('%',#{order.buyer},'%')
+		</if>
+		<if test="order.orderType != null and order.orderType != ''">
+			and o.orderType like concat('%',#{order.orderType},'%')
+		</if>
+		<if test="order.orderTime != null and order.orderTime != ''">
+			and (to_char(o.orderTime,'yyyyMMdd') = #{order.orderTime})
+		</if>
+		<if test="order.status != null and order.status != ''">
+			and o.status = #{order.status}
+		</if>
+	</select>
+
+	<select id="findOrderItem" resultType="cn.demo.springboot.entity.pojo.OrderItem">
+		select * from t_order_item t where t.orderId = #{orderId}
+	</select>
+	<select id="findByOrderId" resultType="cn.demo.springboot.entity.pojo.Order">
+		select * from t_order o where o.id=#{orderId}
+	</select>
+
+</mapper>
